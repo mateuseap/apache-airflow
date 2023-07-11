@@ -38,7 +38,7 @@ Pros:
 
 **DAG** stands for **directed acyclic graph**, in other words, it is a directed graph with no loops. Here is an example:
 
-![Directed Acyclic Graph](https://www.researchgate.net/profile/Marco-Della-Vedova/publication/301243438/figure/fig1/AS:358296033742849@1462435839933/Directed-acyclic-graph-representing-the-data-flow-of-a-cloud-application-organized.png)
+![Directed Acyclic Graph](./assets/DAG.png)
 
 Basically, a DAG in Apache Airflow represents a **data pipeline**. The **vertices** of a DAG represent the **tasks**, and the **directed edges** represent dependencies between the tasks.
 
