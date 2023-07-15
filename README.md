@@ -74,3 +74,23 @@ It is not a data streaming solution, nor a data processing framework. You should
 ### Multi Nodes Architecture (Celery)
 
 ![Multi Nodes Architecture (Celery)](./assets/Multi%20Nodes%20Architecture%20(Celery).png)
+
+## Airflow dependencies
+
+### Extra dependencies
+
+The ```apache-airflow``` PyPI basic package only installs what’s needed to get started. Additional packages can be installed depending on what will be useful in your environment. For instance, if you don’t need connectivity with **Postgres**, you won’t have to go through the trouble of installing the ```postgres-devel``` yum package, or whatever equivalent applies on the distribution you are using.
+
+Most of the **extra dependencies** are linked to a corresponding **provider package**. For example “amazon” extra has a corresponding ```apache-airflow-providers-amazon``` provider package to be installed. When you install Airflow with such extras, the necessary provider packages are installed automatically (latest versions from PyPI for those packages). However, you can freely upgrade and install provider packages independently from the main Airflow installation.
+
+For the list of the extras and what they enable, check out the Airflow documentation: [Reference for package extras](https://airflow.apache.org/docs/apache-airflow/stable/extra-packages-ref.html)
+
+### Provider packages
+
+The Airflow 2.0 is delivered in multiple, separate, but connected **provider packages**. The core of Airflow scheduling system is delivered as ```apache-airflow``` package and there are around 60 provider packages which can be installed separately as so called **Airflow provider packages**. The default Airflow installation doesn’t have many integrations and you have to install them yourself.
+
+For more informations about it, check out the Airflow documentation: [Provider packages](https://airflow.apache.org/docs/apache-airflow-providers/index.html)
+
+### Differences between extras and providers
+
+**Extras** and **providers** are different things, though many extras are leading to installing providers. Extras are standard Python setuptools feature that allows to add additional set of dependencies as optional features to “core” Apache Airflow, while providers packages are just one of the type of such optional features, but not all optional features of Apache Airflow have corresponding providers.
