@@ -106,13 +106,13 @@ After installing the Apache Airflow, you'll get the following files inside your 
     │   └── *
     └── webserver_config.py
 
-- ```airflow.cfg```
+- **airflow.cfg**
     - Stores all configuration settings of Apache Airflow.
-- ```airflow.db```
+- **airflow.db**
     - Corresponds to the SQLite database of Apache Airflow.
-- ```logs```
+- **logs**
     - Folder that stores the logs of the ```scheduler``` and the ```tasks```.
-- ```webserver_config.py```
+- **webserver_config.py**
     - File used to configure the web server, more specifically, used to configure the way the users are authenticated in Apache Airflow **user interface**.
 
 ## Running Apache Airflow locally using Docker
@@ -133,8 +133,8 @@ After running the above commands and waiting a little bit of time, you can view 
 
 You'll be able to login using the below credentials:
 
-- Username: ```admin```
-- Password: ```admin```
+- Username: **admin**
+- Password: **admin**
 
 There is a lot of useful commands that you can view in [materials/section-2/docs/cli_commands.txt](/materials/section-2/docs/cli_commands.txt) file, I recommend you take a look in it! Also, I strongly recommend to learn about Docker ([Docker reference documentation](https://docs.docker.com/reference/)), it's really important.
 
