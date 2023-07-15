@@ -137,3 +137,34 @@ You'll be able to login using the below credentials:
 - Password: ```admin```
 
 There is a lot of useful commands that you can view in [materials/section-2/docs/cli_commands.txt](/materials/section-2/docs/cli_commands.txt) file, I recommend you take a look in it! Also, I strongly recommend to learn about Docker ([Docker reference documentation](https://docs.docker.com/reference/)), it's really important.
+
+## Apache Airflow CLI
+
+There are some operations that you can't do by using the friendly Apache Airflow user interface, you'll need to use the **Apache Airflow CLI (command language interface)**. The first thing you have to know is that the commands in Apache Airflow CLI are **grouped**, most of the commands are separated in different groups according to the **resources** they interact to. Below is listed some useful commands:
+
+- ```airflow -h```
+    - List all available groups and commands.
+- ```airflow db init```
+    - Initialize the **metadabase** and generate the files and folders needed by Apache Airflow.
+- ```airflow db reset```
+    - Delete all the **metadata** in the Apache Airflow **metadatabase**.
+- ```airflow db upgrade```
+    - Upgrade the schemas that are in the Apache Airflow **metadatabase**.
+- ```airflow webserver```
+    - Start the **web server** and the **user interface** of Apache Airflow.
+- ```airflow scheduler```
+    - Start the **scheduler**.
+- ```airflow celery worker```
+    - Says that the machine is a Apache Airflow **worker**, so you can run **tasks** on it.
+- ```airflow dags list```
+    - List all the **dags**.
+- ```airflow dags trigger [dag_id] -e [execution_date]```
+    - Trigger an especific **dag** and set it's **execution date**.
+- ```airflows dags list-runs -d [dag_id]```
+    - List all **runs** of an specific **dag**.
+- ```airflow dags backfill -s [start_date] -e [end_date] [dag_id] --reset-dagruns```
+    - Retry already past triggered **dag runs** of an specific **dag** between two dates (ex: ```[start_date] -> 2021-01-01``` and ```[end_date] -> 2021-01-05```).
+- ```airflow tasks list [dag_id]```
+    - List all the **tasks** of a given **dag**.
+- ```airflow tasks test [dag_id] [task_id] [execution_date]```
+    - Check if an specific **task** of a given **dag** works. 
