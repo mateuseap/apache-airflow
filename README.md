@@ -65,7 +65,7 @@ A **workflow** in Apache Airflow is the combination of all the concepts we've le
 
 It is not a data streaming solution, nor a data processing framework. You should not process TB or GB of data in Airflow. Apache Airflow is a way to trigger external tools; it's an excellent orchestrator.
 
-## How Airflow works?
+## How Apache Airflow works?
 
 ### One Node Architecture
 
@@ -75,7 +75,7 @@ It is not a data streaming solution, nor a data processing framework. You should
 
 ![Multi Nodes Architecture (Celery)](./assets/Multi%20Nodes%20Architecture%20(Celery).png)
 
-## Airflow dependencies
+## Apache Airflow dependencies
 
 ### Extra dependencies
 
@@ -95,7 +95,7 @@ For more informations about it, check out the Airflow documentation: [Provider p
 
 **Extras** and **providers** are different things, though many extras are leading to installing providers. Extras are standard Python setuptools feature that allows to add additional set of dependencies as optional features to “core” Apache Airflow, while providers packages are just one of the type of such optional features, but not all optional features of Apache Airflow have corresponding providers.
 
-## Airflow files
+## Apache Airflow files
 
 After installing the Apache Airflow, you'll get the following files inside your ```airflow``` folder:
 
@@ -114,3 +114,26 @@ After installing the Apache Airflow, you'll get the following files inside your 
     - Folder that stores the logs of the ```scheduler``` and the ```tasks```.
 - ```webserver_config.py```
     - File used to configure the web server, more specifically, used to configure the way the users are authenticated in Apache Airflow **user interface**.
+
+## Running Apache Airflow locally using Docker
+
+The fastest way is by using a **docker image** of Apache Airflow, you can use the **Dockerfile** that is inside [materials/section-2/](/materials/section-2/Dockerfile) folder to build your first Apache Airflow docker image. After getting the Dockerfile, run the below commands:
+
+```bash
+# Build a docker image from the Dockerfile in the current directory and name it 'airflow-basic'
+docker build -t airflow-basic .
+
+# Create a docker container named 'airflow' using the 'airflow-basic' docker image, also binds the container port 8080 with our local port 8080. This docker container will run in the background because of the '-d' param
+docker run --name airflow -d -p 8080:8080 airflow-basic
+```
+
+After running the above commands and waiting a little bit of time, you can view the Apache Airflow **user interface** by openning [http://localhost:8080/](http://localhost:8080/) in your web browser:
+
+![Apache Airflow UI](./assets/Apache%20Airflow%20UI.png)
+
+You'll be able to login using the below credentials:
+
+- Username: ```admin```
+- Password: ```admin```
+
+There is a lot of useful commands that you can view in [materials/section-2/docs/cli_commands.txt](/materials/section-2/docs/cli_commands.txt) file, I recommend you take a look in it! Also, I strongly recommend to learn about Docker ([Docker reference documentation](https://docs.docker.com/reference/)), it's really important.
