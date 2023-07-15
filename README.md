@@ -94,3 +94,23 @@ For more informations about it, check out the Airflow documentation: [Provider p
 ### Differences between extras and providers
 
 **Extras** and **providers** are different things, though many extras are leading to installing providers. Extras are standard Python setuptools feature that allows to add additional set of dependencies as optional features to “core” Apache Airflow, while providers packages are just one of the type of such optional features, but not all optional features of Apache Airflow have corresponding providers.
+
+## Airflow files
+
+After installing the Apache Airflow, you'll get the following files inside your ```airflow``` folder:
+
+    .
+    ├── airflow.cfg
+    ├── airflow.db
+    ├── logs
+    │   └── *
+    └── webserver_config.py
+
+- ```airflow.cfg```
+    - Stores all configuration settings of Apache Airflow.
+- ```airflow.db```
+    - Corresponds to the SQLite database of Apache Airflow.
+- ```logs```
+    - Folder that stores the logs of the ```scheduler``` and the ```tasks```.
+- ```webserver_config.py```
+    - File used to configure the web server, more specifically, used to configure the way the users are authenticated in Apache Airflow **user interface**.
